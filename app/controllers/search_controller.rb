@@ -4,13 +4,15 @@ class SearchController < ApplicationController
   end
 
   def search
-    @search = search_params[:searchtext]
 
-    if search_params[:searchtext].blank?
-      render 'no_results'
+    @search = search_params[:text]
+    results = Flickr.search(search_params)
+    @photos = results[:photos]
 
-    else
+    if @photos.size > 0
       render 'results'
+    else
+      render 'no_results'
     end
 
   end
@@ -18,6 +20,6 @@ class SearchController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:searchtext)
+    params.require(:search).permit(:text)
   end
 end

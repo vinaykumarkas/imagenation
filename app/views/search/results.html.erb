@@ -1,8 +1,15 @@
 <% content_for :results_content do %>
 
-<p>
-	Results found :)
-</p>
+
+<% @photos.each do |photo| %>
+
+<%= link_to photo.large_url, class: 'fancybox' do %>
+<%= image_tag photo.thumbnail_url %>
+<% end %>
+
+<% end %>
+
+
 
 <% end %>
 <%= render partial: 'search_results_template' %>

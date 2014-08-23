@@ -6,6 +6,10 @@ class Flickr
   def self.search(params)
     json = self.call_api(self.build_search_url params)
     result_hash = HashWithIndifferentAccess.new(JSON.parse json)[:photos]
+    puts "--------------------------------"
+    puts json
+    puts result_hash
+    puts "---------------------------------"
     photos = result_hash[:photo].map { |attributes| Photo.new(attributes) }
 
     # ensure all values are integers (as Flickr sometimes return string values like "7300")
@@ -28,14 +32,14 @@ class Flickr
       api_key: 'ef7fc5dce9df067522c7c4ae20dc81f7',
       format: 'json',
       nojsoncallback: 1,
-      per_page: 24
+      per_page: 100
     }
   end
 
   def self.build_search_url(params)
     query_string = params.merge(self.default_params).to_param
-
     url = "#{FLICKR_API_URL}?#{query_string}"
+
   end
 
   private
