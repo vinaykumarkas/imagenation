@@ -1,0 +1,9 @@
+<h1 >Flickr Search</h1>
+
+<%= form_for(:search, url: "search", method: :get) do |f| %>
+
+	<%= f.text_field :searchtext %>
+	<%= submit_tag 'Search'%>
+
+<% end %>
+
