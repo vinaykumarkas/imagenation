@@ -28,7 +28,7 @@ class SearchController < ApplicationController
 
   def validate_search_query
     if search_params[:text].blank?
-      flash[:notice] = "You have entered an empty query, please type in something."
+      flash[:notice] = "You have entered an empty keyword, please type in something to search for."
       render 'no_results'
     end
   end

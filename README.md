@@ -13,12 +13,15 @@ visit "localhost:3000" to view the application home page
 
 Alternatively you can visit http://radiant-sierra-3399.herokuapp.com/ which is Heroku link for this application
 
+<<<<<<< HEAD:README.md
 <<<<<<< HEAD
 ##Notes
 Please update the API Key for Flickr with your own API Key
 
 ##Testing
 =======
+=======
+>>>>>>> enhancements-001:README.md
 #Testing
 >>>>>>> enhancements-001
 Various test cases can be ececuted from the spec directory:
@@ -40,5 +43,11 @@ execute "rspec spec/helpers/search_helper_spec.rb" for helper test cases
 - Add additional test cases
 - Add more repository search functanolities
 - Add compatibility code to make application compatable with all browsers
+<<<<<<< HEAD:README.md
+=======
+- Add upload functionality
+- Implement content for links
+
+>>>>>>> enhancements-001:README.md
 
 >>>>>>> enhancements-001
