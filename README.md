@@ -32,4 +32,6 @@ execute "rspec spec/helpers/search_helper_spec.rb" for helper test cases
 - Add compatibility code to make application compatable with all browsers
 - Add upload functionality
 - Implement content for links
+- implement mobile enable features
+- Implement Rake task for automated tests and implement cucumber automated UI test
 
