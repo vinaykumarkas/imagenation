@@ -1,6 +1,35 @@
-<header >
-	<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-		<h1 class="logo"><%= link_to root_url, class: 'logo' do %>
-		IMAGEnation | <% end %><span class="small-logo">Search Photos from Flickr</span>
-	</nav>
-</header>
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	
+		<h4 class="logo"><%= link_to root_url, class: 'logo' do %>
+		IMAGEnation | <% end %><span class="small-logo">Search Photos from Flickr</span></h4>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     
+
+        <%= form_for(:search, url: search_path, method: :get, html: {class: 'navbar-form navbar-right'}) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :text, value: @search, id: 'search-query-field', class: 'form-control', placeholder: 'keywords' %>
+        </div>  
+        <button class="btn btn-primary" type="submit">Search</button>
+      <% end %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">SignUp</a></li>
+        <li><a href="#">Signin</a></li>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Upload</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

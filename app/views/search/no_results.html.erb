@@ -1,9 +1,7 @@
-<% content_for :results_content do %>
+<% if flash[:notice].blank?
 
-<p>
-	No images found with the Keywork provided. Please search with different Keywords
-</p>
+  flash[:notice]= "No images found with the Keywork provided. Please search with different Keywords"
 
-<% end %>
+end %>
 
 <%= render partial: 'search_results_template' %>
