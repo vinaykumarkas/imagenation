@@ -21,11 +21,13 @@ execute "rspec spec/models/flickr_spec.rb" for model test cases
 execute "rspec spec/helpers/search_helper_spec.rb" for helper test cases
 
 #Notes
-Please update the API Key for Flickr with your own API Key
+- Please update the API Key for Flickr with your own API Key
+- Currently application is developed keeping Google Chrome in scope
 
 #To Do
 - Add Authentication for the website
 - Remove Flickr API KEY from code and make it as ENV Variable
 - Add additional test cases
 - Add more repository search functanolities
+- Add compatibility code to make application compatable with all browsers
 
