@@ -7,6 +7,7 @@ class SearchController < ApplicationController
 
     @search = search_params[:text]
     results = Flickr.search(search_params)
+    @pagination_info = results[:pagination_info]
     @photos = results[:photos]
 
     if @photos.size > 0

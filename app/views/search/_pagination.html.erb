@@ -1,0 +1,26 @@
+<% 
+  current_page = @pagination_info[:page]
+  pages = @pagination_info[:pages]  
+%>
+
+
+  <%= content_tag :li, class: (current_page == 1 ? 'disabled' : '') do %>
+    <%= link_to '&laquo;'.html_safe, url_for_page(current_page - 1)  %>
+  <% end %>
+
+  <% current_page_numbers.each do |page_number| %>
+    
+    <%= content_tag :li, :class => (page_number == current_page ? 'active' : '') do %>
+      <%= link_to url_for_page(page_number) do %>
+        <%= page_number %>
+        <% if page_number == current_page %>
+          <span class="sr-only">(current)</span>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= content_tag :li, class: (current_page >= pages ? 'disabled' : '') do %>
+    <%= link_to '&raquo;'.html_safe, url_for_page(current_page + 1) %>
+  <% end %>

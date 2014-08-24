@@ -1,6 +1,6 @@
 <% content_for :results_content do %>
 
-
+<%= render partial: 'pagination' %>
 <% @photos.each do |photo| %>
 
 <%= link_to photo.large_url, class: 'fancybox' do %>
@@ -9,7 +9,7 @@
 
 <% end %>
 
-
+<%= render partial: 'pagination' %>
 
 <% end %>
 <%= render partial: 'search_results_template' %>

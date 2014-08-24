@@ -1,1 +1,10 @@
+<%= form_for(:search, url: search_path, method: :get, html: {class: 'navbar-form navbar-left'}) do |f| %>
+<%= f.text_field :text, value: @query, id: 'search-query-field', class: 'form-control', placeholder: 'keywords' %>
+<%= submit_tag 'Search'%>
+<% end %>
+
+<% flash.each do |key, value| %>
+<%= content_tag :div, value%>
+<% end %>
+
 <%= yield :results_content %>
