@@ -11,7 +11,9 @@ execute "Bundle install"
 execute "rails s" to start the server
 visit "localhost:3000" to view the application home page
 
-Alternatively you can visit http://radiant-sierra-3399.herokuapp.com/ which is Heroku link for this application
+Alternatively you can visit http://radiant-sierra-3399.herokuapp.com/ for Master application which is Heroku link for this application
+
+Also, you can visit http://enhancements-001.herokuapp.com/ for enhancements - Note this link may not be up to date and sometimes unstable as this is deployments for implementations in-progress
 
 #Testing
 Various test cases can be ececuted from the spec directory:
