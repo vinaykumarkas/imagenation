@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  
+  before_filter :validate_search_query, :only => :search
   def index
 
   end
@@ -21,6 +23,13 @@ class SearchController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:text)
+    params.require(:search).permit(:text, :page)
+  end
+
+  def validate_search_query
+    if search_params[:text].blank?
+      flash[:notice] = "You have entered an empty query, please type in something."
+      render 'no_results'
+    end
   end
 end
