@@ -13,9 +13,6 @@ visit "localhost:3000" to view the application home page
 
 Alternatively you can visit http://radiant-sierra-3399.herokuapp.com/ which is Heroku link for this application
 
-#Notes
-Please update the API Key for Flickr with your own API Key
-
 #Testing
 Various test cases can be ececuted from the spec directory:
 
@@ -23,9 +20,12 @@ execute "rspec spec/controllers/search_controller_spec.rb" for controller test c
 execute "rspec spec/models/flickr_spec.rb" for model test cases
 execute "rspec spec/helpers/search_helper_spec.rb" for helper test cases
 
+#Notes
+Please update the API Key for Flickr with your own API Key
 
 #To Do
 - Add Authentication for the website
 - Remove Flickr API KEY from code and make it as ENV Variable
 - Add additional test cases
+- Add more repository search functanolities
 
