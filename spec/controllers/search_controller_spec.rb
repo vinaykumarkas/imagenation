@@ -6,16 +6,42 @@ require 'spec_helper'
 
 describe SearchController, :type => :controller do
   describe "#search" do
+    
+    it 'renders correct view on searching with emptry string' do
+      allow(Flickr).to receive(:search) do
+        { page: '1', photos: [] }
+      end
+      
+      get :search, {search: {text: ''}}
+      expect(response).to render_template(:no_results)
+    end
+    
+     it 'renders correct view on searching with long emptry string' do
+      allow(Flickr).to receive(:search) do
+        { page: '1', photos: [] }
+      end
+      
+      get :search, {search: {text: '      '}}
+      expect(response).to render_template(:no_results)
+    end
+    
+     it 'renders correct view on searching with emptry string' do
+      allow(Flickr).to receive(:search) do
+        { page: '1', photos: [] }
+      end
+      
+      get :search, {search: {text: ''}}
+      expect(response).to render_template(:no_results)
+    end
+    
     it 'renders correct view on positive results' do
       allow(Flickr).to receive(:search) do
         { page: '1', photos: [Photo.new(title: 'photo 1')] }
       end
 
       get :search, {search: {text: 'apple'}}
-
       expect(response).to render_template(:results)
     end
-
 
     it 'renders correct view on zero results' do
       allow(Flickr).to receive(:search) do
@@ -23,7 +49,6 @@ describe SearchController, :type => :controller do
       end
 
       get :search, {search: {text: 'orange'}}
-
       expect(response).to render_template(:no_results)
     end
   end
