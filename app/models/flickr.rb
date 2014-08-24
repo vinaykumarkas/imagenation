@@ -1,3 +1,9 @@
+=begin
+This class interacts with Flickr using Flickr API. This class calles the API with the required parameters 
+and API_KEY and  builds the search URL and opens the URL, processes the results and manupulates the pagination information.  
+=end
+
+
 require 'open-uri'
 
 class Flickr
@@ -6,10 +12,6 @@ class Flickr
   def self.search(params)
     json = self.call_api(self.build_search_url params)
     result_hash = HashWithIndifferentAccess.new(JSON.parse json)[:photos]
-    puts "--------------------------------"
-    puts json
-    puts result_hash
-    puts "---------------------------------"
     photos = result_hash[:photo].map { |attributes| Photo.new(attributes) }
 
     # ensure all values are integers (as Flickr sometimes return string values like "7300")
@@ -39,11 +41,9 @@ class Flickr
   def self.build_search_url(params)
     query_string = params.merge(self.default_params).to_param
     url = "#{FLICKR_API_URL}?#{query_string}"
-
   end
 
   private
-
   def self.call_api(url)
     open(url).read
   end
