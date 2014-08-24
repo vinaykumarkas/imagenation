@@ -17,5 +17,11 @@ describe SearchHelper, :type => :helper do
       @pagination_info = {page: 55, pages: 56}
       expect(helper.current_page_numbers).to eq((51..56).to_a)
     end  
+    
+    it 'last page should have extra pages' do
+      @pagination_info = {page: 1, pages: 2}
+      expect(helper.current_page_numbers).to eq((1..2).to_a)
+    end  
+    
   end
 end
