@@ -18,10 +18,16 @@
 @import "bootstrap";
 
 .logo {
-  font-weight: 800;
+	font-weight: 800;
+}
+
+.small-logo {
+	color: white;
+	font-size: 12px;
 }
 
 
+
 #search-query-field {
-  width: 28em;
+	width: 28em;
 }
