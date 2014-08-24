@@ -25,7 +25,7 @@ describe Flickr do
       eos
     }
 
-    result = Flickr.search(text: 'Niagara')
+    result = Flickr.search(text: 'Melbourne')
 
     expect(result[:pagination_info]).to include(page: 2, pages: 10)
  
@@ -36,5 +36,24 @@ describe Flickr do
     photo1 = result[:photos][1]
     expect(photo1.owner).to eq("owner2")
     expect(photo1.farm).to eq(3)
+  end
+  
+  it 'parses Flickr API json result correctly when no results' do
+    allow(Flickr).to receive(:call_api) { 
+      <<-eos
+      {
+        "photos": {
+          
+        }
+      }
+      eos
+    }
+
+  begin
+      result = Flickr.search(text: 'Melbourne')
+  rescue Exception =>ex
+      expect(ex).not_to eq('')
+  end
+    
   end
 end
