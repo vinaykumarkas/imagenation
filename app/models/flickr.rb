@@ -34,7 +34,7 @@ class Flickr
       api_key: 'ef7fc5dce9df067522c7c4ae20dc81f7',
       format: 'json',
       nojsoncallback: 1,
-      per_page: 100
+      per_page: 30
     }
   end
 
